@@ -1,1 +1,85 @@
-It works!
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>tito.dev</title>
+  <meta name="description" content="tito.dev home">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#333641">
+  
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333641;
+    }
+
+    h1 {
+      font-family: monospace;
+      font-size: 10vw;
+      color: white;
+      position: relative;
+    }
+
+    span {
+      display: inline-block;
+      text-indent: 100%;
+      white-space: nowrap;
+      width: 0;
+      overflow: hidden;
+    }
+
+    strong::after {
+      content: ".dev";
+      color: #999999;
+      overflow: visible;
+      animation: write-tld 2s linear;
+    }
+
+    h1::after {
+      content: "";
+      border-left: 0.15em solid orange;
+      white-space: nowrap;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes write-tld {
+      0% {
+        content: "";
+      }
+      70% {
+        content: ".";
+      }
+      80% {
+        content: ".d";
+      }
+      90% {
+        content: ".de";
+      }
+      100% {
+        content: ".dev";
+      }
+    }
+
+    @keyframes blink-caret {
+      from,
+      to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: orange;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1><strong>tito</strong><span>.dev</span></h1>
+</body>
+
+</html>
