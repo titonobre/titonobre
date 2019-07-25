@@ -32,25 +32,21 @@
     }
 
     span {
-      display: inline-block;
-      text-indent: 100%;
-      white-space: nowrap;
-      width: 0;
-      overflow: hidden;
+      color: transparent;
+    }
+
+    span::selection {
+        color: transparent;
     }
 
     strong::after {
-      content: ".dev";
+      position: absolute;
+      content: "";
       color: #999999;
       overflow: visible;
-      animation: write-tld 2s linear;
-    }
-
-    h1::after {
-      content: "";
-      border-left: 0.15em solid orange;
+      border-right: 0.15em solid orange;
       white-space: nowrap;
-      animation: blink-caret 0.75s step-end infinite;
+      animation: blink-caret 0.75s step-end 0s infinite both, write-tld 2s linear 0.25s 1 both;
     }
 
     @keyframes write-tld {
@@ -74,10 +70,10 @@
     @keyframes blink-caret {
       from,
       to {
-        border-color: transparent;
+        border-color: orange;
       }
       50% {
-        border-color: orange;
+        border-color: transparent;
       }
     }
   </style>
