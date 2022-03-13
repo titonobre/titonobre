@@ -7,14 +7,14 @@
   <meta name="description" content="tito.dev home">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#333641">
-  
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       height: 100vh;
       width: 100vw;
@@ -22,69 +22,64 @@
       justify-content: center;
       align-items: center;
       background-color: #333641;
+      color: white;
     }
 
-    h1 {
+    .address {
+      width: 8ch;
       font-family: monospace;
       font-size: 10vw;
-      color: white;
-      position: relative;
+      font-weight: bold;
     }
 
-    span {
-      display: inline-block;
-      text-indent: 100%;
-      white-space: nowrap;
-      width: 0;
-      overflow: hidden;
-    }
-
-    strong::after {
-      content: ".dev";
+    .tld {
       color: #999999;
-      overflow: visible;
-      animation: write-tld 2s linear;
     }
 
-    h1::after {
-      content: "";
-      border-left: 0.15em solid orange;
+    .domain {
       white-space: nowrap;
-      animation: blink-caret 0.75s step-end infinite;
+      overflow: hidden;
+      width: 8ch;
+      animation: type-dot 1s steps(1, end), type-dev 0.5s 1s steps(3, end),
+        blink 0.5s step-end infinite alternate;
+
+      box-shadow: 1vw 0 0 0 transparent;
     }
 
-    @keyframes write-tld {
-      0% {
-        content: "";
+    @keyframes type-dot {
+      from {
+        width: 4ch;
       }
-      70% {
-        content: ".";
-      }
-      80% {
-        content: ".d";
-      }
-      90% {
-        content: ".de";
-      }
-      100% {
-        content: ".dev";
-      }
-    }
 
-    @keyframes blink-caret {
-      from,
-      to {
-        border-color: transparent;
-      }
       50% {
-        border-color: orange;
+        width: 5ch;
+      }
+    }
+
+    @keyframes type-dev {
+      from {
+        width: 5ch;
+      }
+
+      to {
+        width: 8ch;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        box-shadow: 1vw 0 0 0 orange;
       }
     }
   </style>
 </head>
 
 <body>
-  <h1><strong>tito</strong><span>.dev</span></h1>
+  <h1 class="address">
+    <div class="domain">
+      tito<span class="tld">.dev</span>
+    </div>
+  </h1>
 </body>
 
 </html>
